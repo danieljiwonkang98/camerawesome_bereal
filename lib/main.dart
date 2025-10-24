@@ -43,8 +43,6 @@ class _CameraPageState extends State<CameraPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-
     if (isMultiCamSupported == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
@@ -95,10 +93,10 @@ class _CameraPageState extends State<CameraPage> {
                   // This builder is only called for secondary cameras (index >= 1)
                   // The primary camera (index 0) is automatically shown in main view
                   return PictureInPictureConfig(
-                    isDraggable: true,
-                    startingPosition: Offset(
-                      screenSize.width - 170,
-                      screenSize.height - 420,
+                    isDraggable: false, // Fixed position like BeReal
+                    startingPosition: const Offset(
+                      16, // Left margin
+                      60, // Top margin (below status bar)
                     ),
                     sensor: sensor,
                     onTap: () {
@@ -106,8 +104,8 @@ class _CameraPageState extends State<CameraPage> {
                     },
                     pictureInPictureBuilder: (preview, aspectRatio) {
                       return Container(
-                        width: 150,
-                        height: 200,
+                        width: 120, // Slightly smaller for BeReal style
+                        height: 160,
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.white, width: 3),
                           borderRadius: BorderRadius.circular(12),
@@ -121,74 +119,7 @@ class _CameraPageState extends State<CameraPage> {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Stack(
-                            children: [
-                              // The actual camera preview!
-                              Positioned.fill(child: preview),
-                              // Label overlay
-                              Positioned(
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.black54,
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        sensor.position == SensorPosition.front
-                                            ? Icons.camera_front
-                                            : Icons.camera_rear,
-                                        color: Colors.white,
-                                        size: 16,
-                                      ),
-                                      const SizedBox(width: 4),
-                                      Text(
-                                        sensor.position == SensorPosition.front
-                                            ? 'Front'
-                                            : 'Back',
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              // Drag indicator
-                              Positioned(
-                                top: 8,
-                                left: 0,
-                                right: 0,
-                                child: Center(
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 8,
-                                      vertical: 4,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black54,
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: const Icon(
-                                      Icons.drag_indicator,
-                                      color: Colors.white54,
-                                      size: 16,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          child: preview, // Clean preview without overlays
                         ),
                       );
                     },
