@@ -35,9 +35,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
-  # Camera plugin with multi-camera support (using local modified version)
+  # Camera plugin with multi-camera support (using GitHub version with iOS fixes)
   camerawesome:
-    path: ./camerawesome_local
+    git:
+      url: https://github.com/danieljiwonkang98/camerawesome.git
+      ref: master
 
   # Path provider for accessing directories
   path_provider: ^2.1.5

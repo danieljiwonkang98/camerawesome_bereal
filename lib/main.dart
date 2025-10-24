@@ -56,15 +56,27 @@ class _CameraPageState extends State<CameraPage> {
           saveConfig: SaveConfig.photoAndVideo(
             initialCaptureMode: CaptureMode.photo,
           ),
+          progressIndicator: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(height: 16),
+                Text(
+                  'Initializing cameras...',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
           sensorConfig: isMultiCamSupported == true
               ? SensorConfig.multiple(
                   sensors: [
                     Sensor.position(SensorPosition.back),
-
                     Sensor.position(SensorPosition.front),
                   ],
-                  flashMode: FlashMode.auto,
-                  aspectRatio: CameraAspectRatios.ratio_16_9,
+                  flashMode: FlashMode.none,
+                  aspectRatio: CameraAspectRatios.ratio_4_3,
                 )
               : SensorConfig.single(
                   sensor: Sensor.position(SensorPosition.back),
@@ -72,13 +84,16 @@ class _CameraPageState extends State<CameraPage> {
                   aspectRatio: CameraAspectRatios.ratio_16_9,
                 ),
           enablePhysicalButton: true,
-          previewFit: CameraPreviewFit.fitWidth,
+          previewFit: CameraPreviewFit.cover,
           // This is the key! Picture-in-Picture configuration
           pictureInPictureConfigBuilder: isMultiCamSupported == true
               ? (index, sensor) {
                   debugPrint(
                     '🔍 PiP Builder called: index=$index, sensor.position=${sensor.position}',
                   );
+                  debugPrint('   📊 Creating PiP config for secondary camera');
+                  // This builder is only called for secondary cameras (index >= 1)
+                  // The primary camera (index 0) is automatically shown in main view
                   return PictureInPictureConfig(
                     isDraggable: true,
                     startingPosition: Offset(

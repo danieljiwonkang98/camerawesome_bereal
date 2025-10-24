@@ -36,9 +36,11 @@ packages:
   camerawesome:
     dependency: "direct main"
     description:
-      path: camerawesome_local
-      relative: true
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: "13b13da5772ba7ea2aac7da4728d501b945a1d8c"
+      url: "https://github.com/danieljiwonkang98/camerawesome.git"
+    source: git
     version: "2.5.0"
   carousel_slider:
     dependency: transitive

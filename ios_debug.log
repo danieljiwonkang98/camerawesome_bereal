@@ -1,0 +1,33 @@
+Resolving dependencies...
+Downloading packages...
+  characters 1.4.0 (1.4.1 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  lints 5.1.1 (6.0.0 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.16.0 (1.17.0 available)
+  test_api 0.7.6 (0.7.7 available)
+Got dependencies!
+6 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Launching lib/main.dart on Daniel’s iPhone (wireless) in debug mode...
+Automatically signing iOS for device deployment using specified development team in Xcode project: MPCJDQQ23J
+Running Xcode build...                                          
+Xcode build done.                                            6.5s
+Installing and launching...                                     
+You may be prompted to give access to control Xcode. Flutter uses Xcode to run your app. If access is not allowed, you can change this through your Settings > Privacy & Security > Automation.
+Installing and launching...                                        48.2s
+Syncing files to device Daniel’s iPhone (wireless)...               32ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on Daniel’s iPhone (wireless) is available at: http://127.0.0.1:61515/o7WIGzQDnpY=/
+The Flutter DevTools debugger and profiler on Daniel’s iPhone (wireless) is available at: http://127.0.0.1:9101?uri=http://127.0.0.1:61515/o7WIGzQDnpY=/
+Another exception was thrown: Multiple widgets used the same GlobalKey.
+Another exception was thrown: Multiple widgets used the same GlobalKey.
+Lost connection to device.
