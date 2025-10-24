@@ -1,0 +1,18 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="io.apparence.camerawesome" >
+4
+5    <uses-sdk android:minSdkVersion="24" />
+6
+7    <uses-permission android:name="android.permission.CAMERA" />
+7-->/Users/danielkang/Development/example_camera/camerawesome_local/android/src/main/AndroidManifest.xml:3:5-65
+7-->/Users/danielkang/Development/example_camera/camerawesome_local/android/src/main/AndroidManifest.xml:3:22-62
+8
+9    <application>
+9-->/Users/danielkang/Development/example_camera/camerawesome_local/android/src/main/AndroidManifest.xml:5:5-7:19
+10        <service android:name="io.apparence.camerawesome.buttons.PlayerService" />
+10-->/Users/danielkang/Development/example_camera/camerawesome_local/android/src/main/AndroidManifest.xml:6:9-58
+10-->/Users/danielkang/Development/example_camera/camerawesome_local/android/src/main/AndroidManifest.xml:6:18-55
+11    </application>
+12
+13</manifest>
